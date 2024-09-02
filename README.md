@@ -1,14 +1,14 @@
 # Bc---Gestion-y-Control-de-inventarios
 pequeña base de datos para Gestion y Control de inventarios
 
-# CASO PRACTICO MODELAMIENTO DE GESTION Y CONTROL DE INVENTARIOS
+# CASO PRÁCTICO MODELAMIENTO DE GESTION Y CONTROL DE INVENTARIOS
 
-##Contexto:
+## Contexto:
 
 Una empresa llamada SupplyChainCo gestiona varios almacenes distribuidos en diferentes ubicaciones geográficas. La empresa trabaja con múltiples proveedores para obtener los productos que vende a sus clientes. Además, SupplyChainCo necesita controlar el inventario en tiempo real, registrar los movimientos de productos entre almacenes, y gestionar pedidos de clientes y órdenes de compra a proveedores.
 Requerimientos del Sistema:
 
-    ###Almacenes:
+    ### Almacenes:
         La empresa tiene múltiples almacenes. Cada almacén tiene un identificador único, una ubicación, y una capacidad de almacenamiento.
 
     ###Productos:
