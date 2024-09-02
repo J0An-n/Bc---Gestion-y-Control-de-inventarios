@@ -29,7 +29,8 @@ Requerimientos del Sistema:
 
     Movimientos de Inventario:
         Se deben registrar todos los movimientos de inventario, ya sea por compra, venta, o transferencia 
-        entre almacenes. Cada movimiento tiene un identificador único, fecha, tipo de movimiento (entrada o salida), cantidad, y almacén origen/destino.
+        entre almacenes. Cada movimiento tiene un identificador único, fecha, tipo de movimiento (entrada 
+        o salida), cantidad, y almacén origen/destino.
 
     Pedidos de Clientes:
         Los clientes realizan pedidos que incluyen uno o varios productos. Cada pedido tiene un identificador 
