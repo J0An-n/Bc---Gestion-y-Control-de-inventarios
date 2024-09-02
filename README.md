@@ -1,7 +1,7 @@
 # Bc---Gestion-y-Control-de-inventarios
 pequeña base de datos para Gestion y Control de inventarios
 
-#CASO PRACTICO MODELAMIENTO DE GESTION Y CONTROL DE INVENTARIOS
+# CASO PRACTICO MODELAMIENTO DE GESTION Y CONTROL DE INVENTARIOS
 
 ##Contexto:
 
