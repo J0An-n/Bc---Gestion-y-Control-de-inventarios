@@ -46,8 +46,9 @@ Requerimientos del Sistema:
         Historial de órdenes de compra y su cumplimiento.
 
 ## OBJETIVO : 
-        Implementar un sistema que permita a "Almacenes Global" gestionar eficientemente su inventario a través de múltiples almacenes, 
-        con la capacidad de realizar un seguimiento detallado de los productos, sus movimientos y la relación con proveedores.
+        Implementar un sistema que permita a "Almacenes Global" gestionar eficientemente su inventario a través de múltiples
+        almacenes, con la capacidad de realizar un seguimiento detallado de los productos, sus movimientos y la relación con
+        proveedores.
 
 
 
