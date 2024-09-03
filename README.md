@@ -20,27 +20,26 @@ Requerimientos del Sistema:
         Cada producto puede estar presente en uno o varios almacenes, con un stock determinado en cada uno.
 
     Movimientos de Inventario:
-        Los movimientos de inventario se registran como entradas o salidas.
-        Cada movimiento tiene un identificador único, fecha y hora, tipo de movimiento (entrada o salida), cantidad, y almacén correspondiente.
-        Es necesario registrar el producto involucrado y, en el caso de salidas, el motivo (venta, traspaso, pérdida, etc.).
+        Los movimientos de inventario se registran como entradas o salidas. Cada movimiento tiene un identificador único,
+        fecha y hora, tipo de movimiento (entrada o salida), cantidad, y almacén correspondiente. Es necesario registrar 
+        el producto involucrado y, en el caso de salidas, el motivo (venta, traspaso, pérdida, etc.).
 
     Proveedores:
         Los productos provienen de distintos proveedores. Cada proveedor tiene un identificador único, nombre, y contacto.
 
     Órdenes de Compra:
         Las órdenes de compra se realizan a los proveedores y están asociadas a un almacén.
-        Cada orden de compra tiene un identificador único, fecha de emisión, fecha de entrega, proveedor, y productos solicitados con sus 
-        cantidades respectivas.
+        Cada orden de compra tiene un identificador único, fecha de emisión, fecha de entrega, proveedor, y productos 
+        solicitados con sus cantidades respectivas.
 
     Clientes:
         La empresa vende sus productos a clientes. Cada cliente tiene un identificador único, nombre, dirección, y contacto.
 
     Pedidos de Clientes:
-        Los clientes realizan pedidos que incluyen uno o varios productos. Cada pedido tiene un identificador único, fecha, cliente, y estado
-        del pedido (pendiente, procesado, enviado).
+        Los clientes realizan pedidos que incluyen uno o varios productos. Cada pedido tiene un identificador único, fecha,
+        cliente, y estado del pedido (pendiente, procesado, enviado).
 
 ## REPORTES :
-
         La empresa necesita reportes sobre:
         Stock actual por almacén.
         Movimientos de inventario por período (por producto, almacén, tipo de movimiento).
