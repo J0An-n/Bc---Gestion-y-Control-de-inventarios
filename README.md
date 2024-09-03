@@ -1,11 +1,14 @@
-# Bc---ALMACENES: Control-de-inventarios
+# Bc---ALMACENES: CONTROL DE INVENTARIOS
 pequeña base de datos para Gestion y Control de inventarios
 
 # CASO PRÁCTICO MODELAMIENTO DE CONTROL DE INVENTARIOS
 
 ## Contexto:
 
-Una cadena de almacenes llamada "Almacenes Global" cuenta con varios establecimientos distribuidos en diferentes ciudades. Cada almacén maneja un inventario independiente, pero la empresa desea tener un control centralizado de todos los productos, su disponibilidad y la rotación de inventarios. El sistema debe permitir la gestión de productos, seguimiento de stock, y control de movimientos (entradas y salidas) de inventario.
+Una cadena de almacenes llamada "Almacenes Global" cuenta con varios establecimientos distribuidos en diferentes ciudades. Cada almacén 
+maneja un inventario independiente, pero la empresa desea tener un control centralizado de todos los productos, su disponibilidad y la 
+rotación de inventarios. El sistema debe permitir la gestión de productos, seguimiento de stock, y control de movimientos (entradas y 
+salidas) de inventario.
 Requerimientos del Sistema:
 
     Almacenes:
@@ -26,13 +29,15 @@ Requerimientos del Sistema:
 
     Órdenes de Compra:
         Las órdenes de compra se realizan a los proveedores y están asociadas a un almacén.
-        Cada orden de compra tiene un identificador único, fecha de emisión, fecha de entrega, proveedor, y productos solicitados con sus cantidades respectivas.
+        Cada orden de compra tiene un identificador único, fecha de emisión, fecha de entrega, proveedor, y productos solicitados con sus 
+        cantidades respectivas.
 
     Clientes:
         La empresa vende sus productos a clientes. Cada cliente tiene un identificador único, nombre, dirección, y contacto.
 
     Pedidos de Clientes:
-        Los clientes realizan pedidos que incluyen uno o varios productos. Cada pedido tiene un identificador único, fecha, cliente, y estado del pedido (pendiente, procesado, enviado).
+        Los clientes realizan pedidos que incluyen uno o varios productos. Cada pedido tiene un identificador único, fecha, cliente, y estado
+        del pedido (pendiente, procesado, enviado).
 
 ## REPORTES :
 
@@ -42,9 +47,8 @@ Requerimientos del Sistema:
         Historial de órdenes de compra y su cumplimiento.
 
 ## OBJETIVO : 
-        Implementar un sistema que permita a "Almacenes Global" gestionar eficientemente su 
-        inventario a través de múltiples almacenes, con la capacidad de realizar un seguimiento 
-        detallado de los productos, sus movimientos y la relación con proveedores.
+        Implementar un sistema que permita a "Almacenes Global" gestionar eficientemente su inventario a través de múltiples almacenes, 
+        con la capacidad de realizar un seguimiento detallado de los productos, sus movimientos y la relación con proveedores.
 
 
 
