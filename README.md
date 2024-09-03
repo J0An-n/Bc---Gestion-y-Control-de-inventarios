@@ -33,7 +33,7 @@ Requerimientos del Sistema:
         solicitados con sus cantidades respectivas.
 
     Clientes:
-        La empresa vende sus productos a clientes. Cada cliente tiene un identificador único, nombre, dirección, y contacto.
+        La empresa vende sus productos a clientes. Cada cliente tiene un identificador único, nombre, dirección y contacto.
 
     Pedidos de Clientes:
         Los clientes realizan pedidos que incluyen uno o varios productos. Cada pedido tiene un identificador único, fecha,
