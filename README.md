@@ -9,6 +9,7 @@ Una cadena de almacenes llamada "Almacenes Global" cuenta con varios establecimi
 maneja un inventario independiente, pero la empresa desea tener un control centralizado de todos los productos, su disponibilidad y la 
 rotación de inventarios. El sistema debe permitir la gestión de productos, seguimiento de stock, y control de movimientos (entradas y 
 salidas) de inventario.
+
 Requerimientos del Sistema:
 
     Almacenes:
@@ -39,13 +40,13 @@ Requerimientos del Sistema:
         Los clientes realizan pedidos que incluyen uno o varios productos. Cada pedido tiene un identificador único, fecha,
         cliente, y estado del pedido (pendiente, procesado, enviado).
 
-## REPORTES :
+## Reportes :
         La empresa necesita reportes sobre:
         Stock actual por almacén.
         Movimientos de inventario por período (por producto, almacén, tipo de movimiento).
         Historial de órdenes de compra y su cumplimiento.
 
-## OBJETIVO : 
+## Objetivo : 
         Implementar un sistema que permita a "Almacenes Global" gestionar eficientemente su inventario a través de múltiples
         almacenes, con la capacidad de realizar un seguimiento detallado de los productos, sus movimientos y la relación con
         proveedores.
