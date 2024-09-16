@@ -76,3 +76,59 @@ precio money not null,
 foreign key (producto_id) references productos(id_producto),
 foreign key (oc_id) references orden_compra(id_oc)
 );
+
+-- creando tabla stock fisico
+create table stock_fisico(
+ubicacion_id int not null,
+ubicacion varchar(10) not null,
+ump_sup varchar(10) not null,
+ump varchar(10) not null,
+producto_id int not null,
+descripcion_producto varchar(50) not null,
+lote varchar(10),
+cantidad int not null,
+umb varchar(5) not null,
+fecha_emision date,
+fecha_caducidad date,
+foreign key (ubicacion_id) references ubicacion_detalle(id_ubicacion),
+foreign key (producto_id) references productos(id_producto)
+);
+
+-- creando tabla pedido cliente
+create table pedido_cliente(
+id_pedido int primary key identity(1,1),
+fecha_pedido datetime not null,
+estado_pedido varchar(50) not null,
+cliente_id int not null,
+foreign key (cliente_id) references clientes(id_cliente),
+);
+
+-- creando tabla detalle pedido
+create table detalle_pedido(
+pedido_id int primary key identity(1,1),
+producto_id int not null,
+cantidad int not null,
+umb varchar(50) not null,
+precio money not null,
+foreign key (pedido_id) references pedido_cliente(id_pedido),
+foreign key (producto_id) references productos(id_producto),
+);
+
+-- creando tabla movimiento_stock
+create table movimiento_stock(
+id_movimiento int primary key identity(1,1),
+tipo_movimiento varchar(100) null,
+producto_id int null,
+cantidad int null,
+umb varchar(50) not null,
+almacen_id_from int null,
+almacen_id_to int null,
+cliente_id int null,
+foreign key (almacen_id_from) references almacenes(id_almacen),
+foreign key (almacen_id_to) references almacenes(id_almacen),
+foreign key (cliente_id) references clientes(id_cliente),
+foreign key (producto_id) references productos(id_producto),
+)
+
+
+
