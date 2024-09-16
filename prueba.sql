@@ -38,7 +38,7 @@ categoria varchar(100)not null
 -- creando tabla clientes
 create table clientes(
 id_cliente int primary key identity(1,1),
-name_cliente varchar(150) unique not null,
+name_cliente varchar(150) not null,
 direccion nvarchar(100) not null,
 phone varchar(100) not null,
 correo varchar(100)not null
@@ -51,6 +51,7 @@ almacen_id int not null,
 proveedor_id int not null,
 fecha_emision datetime not null,
 fecha_entrega datetime not null,
+estado varchar(50) not null,
 foreign key (almacen_id) references almacenes(id_almacen),
 foreign key (proveedor_id) references proveedores(id_proveedor)
 );
@@ -61,7 +62,7 @@ id_producto int primary key identity(1,1),
 descripcion_producto varchar(200) not null,
 umb varchar(50) not null,
 producto_in int not null,
-foreign key (producto_in) references categoria_productos(in_producto),
+foreign key (producto_in) references categoria_productos(in_producto)
 );
 
 -- creando tabla detalle orden compras
@@ -104,7 +105,7 @@ foreign key (cliente_id) references clientes(id_cliente),
 
 -- creando tabla detalle pedido
 create table detalle_pedido(
-pedido_id int primary key identity(1,1),
+pedido_id int not null,
 producto_id int not null,
 cantidad int not null,
 umb varchar(50) not null,
@@ -116,18 +117,16 @@ foreign key (producto_id) references productos(id_producto),
 -- creando tabla movimiento_stock
 create table movimiento_stock(
 id_movimiento int primary key identity(1,1),
-tipo_movimiento varchar(100) null,
-producto_id int null,
-cantidad int null,
+tipo_movimiento varchar(100) not null,
+producto_id int not null,
+cantidad int not null,
 umb varchar(50) not null,
-almacen_id_from int null,
-almacen_id_to int null,
-cliente_id int null,
+almacen_id_from int not null,
+almacen_id_to int not null,
+cliente_id int not null,
+fecha_movimiento datetime,
 foreign key (almacen_id_from) references almacenes(id_almacen),
 foreign key (almacen_id_to) references almacenes(id_almacen),
 foreign key (cliente_id) references clientes(id_cliente),
 foreign key (producto_id) references productos(id_producto),
 )
-
-
-
