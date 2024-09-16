@@ -1,6 +1,6 @@
-create database control_inventary;
+create database control_inventario;
 
-use control_inventary;
+use control_inventario;
 
 
 -- creando tabla almacenes
@@ -17,8 +17,8 @@ id_proveedor int primary key identity(1,1),
 name_proveedor varchar(100)  unique not null,
 locacion nvarchar(100) not null,
 pais varchar(50) not null,
-phone varchar(50) not null,
-correo varchar(50) not null
+phone varchar(50) not null check (len(phone)>=8),
+correo varchar(50) not null check (correo like '%_@_%._%')
 );
 
 -- creando tabla ubicacion detalle
@@ -38,10 +38,10 @@ categoria varchar(100)not null
 -- creando tabla clientes
 create table clientes(
 id_cliente int primary key identity(1,1),
-name_cliente varchar(150) unique not null,
+name_cliente varchar(150) not null,
 direccion nvarchar(100) not null,
-phone varchar(100) not null,
-correo varchar(100)not null
+phone varchar(100) not null check (len(phone)>=8),
+correo varchar(100)not null check (correo like '%_@_%._%')
 );
 
 -- creando tabla orden_compra
@@ -51,6 +51,7 @@ almacen_id int not null,
 proveedor_id int not null,
 fecha_emision datetime not null,
 fecha_entrega datetime not null,
+estado varchar(50) not null,
 foreign key (almacen_id) references almacenes(id_almacen),
 foreign key (proveedor_id) references proveedores(id_proveedor)
 );
@@ -61,10 +62,12 @@ id_producto int primary key identity(1,1),
 descripcion_producto varchar(200) not null,
 umb varchar(50) not null,
 producto_in int not null,
-foreign key (producto_in) references categoria_productos(in_producto),
+foreign key (producto_in) references categoria_productos(in_producto)
 );
 
 -- creando tabla detalle orden compras
+-- Se establece una clave primaria compuesta en oc_id y producto_id para 
+-- evitar duplicados de productos en una orden de compra.
 create table detalle_oc(
 oc_id int not null,
 producto_id int not null,
@@ -73,10 +76,13 @@ cantidad_solicitada int not null,
 cantidad_recibida int not null,
 precio money not null,
 foreign key (producto_id) references productos(id_producto),
-foreign key (oc_id) references orden_compra(id_oc)
+foreign key (oc_id) references orden_compra(id_oc),
+primary key (oc_id, producto_id)
 );
 
 -- creando tabla stock fisico
+-- Se establece una clave primaria compuesta en ubicacion_id y
+-- producto_id para evitar duplicados en ubicaciones.
 create table stock_fisico(
 ubicacion_id int not null,
 ubicacion varchar(10) not null,
@@ -90,7 +96,8 @@ umb varchar(5) not null,
 fecha_emision date,
 fecha_caducidad date,
 foreign key (ubicacion_id) references ubicacion_detalle(id_ubicacion),
-foreign key (producto_id) references productos(id_producto)
+foreign key (producto_id) references productos(id_producto),
+primary key (ubicacion_id, producto_id)
 );
 
 -- creando tabla pedido cliente
@@ -103,31 +110,31 @@ foreign key (cliente_id) references clientes(id_cliente),
 );
 
 -- creando tabla detalle pedido
+-- Se establece una clave primaria compuesta en pedido_id y producto_id.
 create table detalle_pedido(
-pedido_id int primary key identity(1,1),
+pedido_id int not null,
 producto_id int not null,
 cantidad int not null,
 umb varchar(50) not null,
 precio money not null,
 foreign key (pedido_id) references pedido_cliente(id_pedido),
 foreign key (producto_id) references productos(id_producto),
+primary key (pedido_id, producto_id)
 );
 
 -- creando tabla movimiento_stock
 create table movimiento_stock(
 id_movimiento int primary key identity(1,1),
-tipo_movimiento varchar(100) null,
-producto_id int null,
-cantidad int null,
+tipo_movimiento varchar(100) not null,
+producto_id int not null,
+cantidad int not null,
 umb varchar(50) not null,
-almacen_id_from int null,
-almacen_id_to int null,
-cliente_id int null,
+almacen_id_from int not null,
+almacen_id_to int not null,
+cliente_id int not null,
+fecha_movimiento datetime not null,
 foreign key (almacen_id_from) references almacenes(id_almacen),
 foreign key (almacen_id_to) references almacenes(id_almacen),
 foreign key (cliente_id) references clientes(id_cliente),
 foreign key (producto_id) references productos(id_producto),
 )
-
-
-
