@@ -17,8 +17,8 @@ id_proveedor int primary key identity(1,1),
 name_proveedor varchar(100)  unique not null,
 locacion nvarchar(100) not null,
 pais varchar(50) not null,
-phone varchar(50) not null check (len(phone)>=8),
-correo varchar(50) not null check (correo like '%_@_%._%')
+phone varchar(50) not null,
+correo varchar(50) not null
 );
 
 
@@ -34,14 +34,13 @@ create table clientes(
 id_cliente int primary key identity(1,1),
 name_cliente varchar(150) not null,
 direccion nvarchar(100) not null,
-phone varchar(100) not null check (len(phone)>=8),
-correo varchar(100)not null check (correo like '%_@_%._%')
+phone varchar(100) not null,
+correo varchar(100)not null
 );
 
 -- creando tabla orden_compra
 create table orden_compra(
 id_oc int primary key identity(1,1),
-almacen_id int not null,
 proveedor_id int not null,
 fecha_emision datetime not null,
 fecha_entrega datetime not null,
@@ -54,7 +53,7 @@ create table ubicacion_detalle(
 id_ubicacion int primary key identity(1,1),
 sub_cat_ub varchar(50) not null,
 cat_ub varchar(50)not null,
-almacen_id int not null
+almacen_id int not null,
 foreign key (almacen_id) references almacenes(id_almacen)
 );
 
@@ -91,7 +90,6 @@ ubicacion varchar(10) not null,
 ump_sup varchar(10) not null,
 ump varchar(10) not null,
 producto_id int not null,
-descripcion_producto varchar(50) not null,
 cantidad int not null,
 umb varchar(5) not null,
 fecha_emision date,
@@ -118,6 +116,7 @@ umb varchar(50) not null,
 precio money not null,
 foreign key (pedido_id) references pedido_cliente(id_pedido),
 foreign key (producto_id) references productos(id_producto),
+primary key (pedido_id,producto_id)
 );
 
 -- creando tabla movimiento_stock
@@ -132,3 +131,7 @@ ubicacion_id int not null,
 foreign key (ubicacion_id) references ubicacion_detalle(id_ubicacion),
 foreign key (lote_id) references stock_fisico(id_lote),
 )
+
+use control_inventario;
+
+drop control_inventarios;
