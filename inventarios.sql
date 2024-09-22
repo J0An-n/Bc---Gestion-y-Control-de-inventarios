@@ -1,6 +1,6 @@
-create database control_inventario;
+create database control_inventarios;
 
-use control_inventario;
+use control_inventarios;
 
 
 -- creando tabla almacenes
@@ -21,12 +21,6 @@ phone varchar(50) not null check (len(phone)>=8),
 correo varchar(50) not null check (correo like '%_@_%._%')
 );
 
--- creando tabla ubicacion detalle
-create table ubicacion_detalle(
-id_ubicacion int primary key identity(1,1),
-sub_cat_ub varchar(50) not null,
-cat_ub varchar(50)not null
-);
 
 -- creando tabla categoria_productos
 create table categoria_productos(
@@ -52,9 +46,18 @@ proveedor_id int not null,
 fecha_emision datetime not null,
 fecha_entrega datetime not null,
 estado varchar(50) not null,
-foreign key (almacen_id) references almacenes(id_almacen),
 foreign key (proveedor_id) references proveedores(id_proveedor)
 );
+
+-- creando tabla ubicacion detalle
+create table ubicacion_detalle(
+id_ubicacion int primary key identity(1,1),
+sub_cat_ub varchar(50) not null,
+cat_ub varchar(50)not null,
+almacen_id int not null
+foreign key (almacen_id) references almacenes(id_almacen)
+);
+
 
 -- creando tabla producto
 create table productos(
@@ -77,27 +80,23 @@ cantidad_recibida int not null,
 precio money not null,
 foreign key (producto_id) references productos(id_producto),
 foreign key (oc_id) references orden_compra(id_oc),
-primary key (oc_id, producto_id)
 );
 
 -- creando tabla stock fisico
 -- Se establece una clave primaria compuesta en ubicacion_id y
 -- producto_id para evitar duplicados en ubicaciones.
 create table stock_fisico(
-ubicacion_id int not null,
+id_lote int primary key identity(1,1),
 ubicacion varchar(10) not null,
 ump_sup varchar(10) not null,
 ump varchar(10) not null,
 producto_id int not null,
 descripcion_producto varchar(50) not null,
-lote varchar(10),
 cantidad int not null,
 umb varchar(5) not null,
 fecha_emision date,
 fecha_caducidad date,
-foreign key (ubicacion_id) references ubicacion_detalle(id_ubicacion),
 foreign key (producto_id) references productos(id_producto),
-primary key (ubicacion_id, producto_id)
 );
 
 -- creando tabla pedido cliente
@@ -119,22 +118,17 @@ umb varchar(50) not null,
 precio money not null,
 foreign key (pedido_id) references pedido_cliente(id_pedido),
 foreign key (producto_id) references productos(id_producto),
-primary key (pedido_id, producto_id)
 );
 
 -- creando tabla movimiento_stock
 create table movimiento_stock(
 id_movimiento int primary key identity(1,1),
 tipo_movimiento varchar(100) not null,
-producto_id int not null,
+lote_id int not null,
 cantidad int not null,
 umb varchar(50) not null,
-almacen_id_from int not null,
-almacen_id_to int not null,
-cliente_id int not null,
 fecha_movimiento datetime not null,
-foreign key (almacen_id_from) references almacenes(id_almacen),
-foreign key (almacen_id_to) references almacenes(id_almacen),
-foreign key (cliente_id) references clientes(id_cliente),
-foreign key (producto_id) references productos(id_producto),
+ubicacion_id int not null,
+foreign key (ubicacion_id) references ubicacion_detalle(id_ubicacion),
+foreign key (lote_id) references stock_fisico(id_lote),
 )
