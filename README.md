@@ -51,13 +51,3 @@ Requerimientos del Sistema:
         través de múltiples almacenes, con la capacidad de realizar un seguimiento detallado de los 
         productos, sus movimientos y la relación con proveedores.
 
-
-## Diagrama :
-    ![imagen](https://github.com/user-attachments/assets/014c2098-0d06-43dc-a886-8afc4905c14f)
-
-
-
-
-
-
-
