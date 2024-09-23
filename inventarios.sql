@@ -117,8 +117,7 @@ cantidad int not null,
 umb varchar(50) not null,
 precio money not null,
 foreign key (pedido_id) references pedido_cliente(id_pedido),
-foreign key (producto_id) references productos(id_producto),
-primary key (pedido_id,producto_id)
+foreign key (producto_id) references productos(id_producto)
 );
 
 -- creando tabla movimiento_stock
@@ -131,7 +130,7 @@ umb varchar(50) not null,
 fecha_movimiento datetime not null,
 ubicacion_id int not null,
 foreign key (ubicacion_id) references ubicacion_detalle(id_ubicacion),
-foreign key (lote_id) references stock_fisico(id_lote),
+foreign key (lote_id) references stock_fisico(id_lote)
 )
 
 use control_inventario;
