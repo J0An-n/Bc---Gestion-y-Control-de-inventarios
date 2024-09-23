@@ -15,6 +15,7 @@ encargado varchar(100) not null)
 create table proveedores(
 id_proveedor int primary key identity(1,1),
 name_proveedor varchar(100)  unique not null,
+documento varchar(100) unique not null,
 locacion nvarchar(100) not null,
 pais varchar(50) not null,
 phone varchar(50) not null,
@@ -33,6 +34,7 @@ categoria varchar(100)not null
 create table clientes(
 id_cliente int primary key identity(1,1),
 name_cliente varchar(150) not null,
+documento varchar(100) unique not null,
 direccion nvarchar(100) not null,
 phone varchar(100) not null,
 correo varchar(100)not null
@@ -134,4 +136,4 @@ foreign key (lote_id) references stock_fisico(id_lote),
 
 use control_inventario;
 
-drop control_inventarios;
+select * from almacenes; 
