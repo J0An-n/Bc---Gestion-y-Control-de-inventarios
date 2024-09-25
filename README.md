@@ -51,9 +51,3 @@ Requerimientos del Sistema:
         través de múltiples almacenes, con la capacidad de realizar un seguimiento detallado de los 
         productos, sus movimientos y la relación con proveedores.
 
-
-
-
-
-
-
